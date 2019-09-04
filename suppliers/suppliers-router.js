@@ -2,20 +2,23 @@ const express = require("express");
 
 const router = express.Router();
 
+// const router = require("express").Router();
+
 // a router can have middleware that applies only to the router
 router.use(express.json());
 
-// this router handles urls that begin with /products
+// this router handles urls that begin with /suppliers
 
-// GET to /products/
+// GET to /suppliers/
 router.get("/", (req, res) => {
   res.send("get to /suppliers/");
 });
 
-// GET to /products/:id
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  res.send(`get to /suppliers/${id}`);
+// GET to /suppliers/:name
+router.get("/:name", (req, res) => {
+  // res.send(`get to /suppliers/${req.params.name}`);
+  const { name } = req.params;
+  res.send(`get to /suppliers/${name}`);
 });
 
 module.exports = router;
